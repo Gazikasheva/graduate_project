@@ -1,2 +1,2 @@
-# graduate_project
+# Stepik graduate_project
 final task placeholder
