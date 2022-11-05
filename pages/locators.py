@@ -10,3 +10,4 @@ class LoginPageLocators ():
 class ProductPageLocators ():
     ADD_TO_BASKET_BUTTON = (By.CSS_SELECTOR,".btn-add-to-basket")
     ACTIVE_ITEM = (By.CSS_SELECTOR, ".item.active")
+    ADDING_CONFIRMATION = (By.XPATH, '//p[contains(text(), "Your basket total is now")]')

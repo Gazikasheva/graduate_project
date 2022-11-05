@@ -24,6 +24,8 @@ class ProductPage(BasePage):
         addbutton = self.browser.find_element (*ProductPageLocators.ADD_TO_BASKET_BUTTON)
         addbutton.click()
         self.solve_quiz_and_get_code ()
+        assert self.is_element_present (*ProductPageLocators.ADDING_CONFIRMATION), "Adding to the basket is not confirmed"
+        
         
 
         
