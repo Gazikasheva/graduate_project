@@ -1,6 +1,7 @@
 from .base_page import BasePage
 from .locators import ProductPageLocators
 from selenium.common.exceptions import NoAlertPresentException
+from.locators import MainPageLocators
 
 
 class ProductPage(BasePage):
@@ -27,17 +28,8 @@ class ProductPage(BasePage):
         self.shoul_be_adding_confirmation()
         self.should_be_added_correct_item (product_name,url)
         self.should_be_still_promo_in_url ()
-    
-    def add_to_basket (self):
-        url = self.browser.current_url
-        product_name = (self.browser.find_element (*ProductPageLocators.PRODUCT_NAME)).text
-        addbutton = self.browser.find_element (*ProductPageLocators.ADD_TO_BASKET_BUTTON)
-        addbutton.click()
-        self.solve_quiz_and_get_code ()
-        self.shoul_be_adding_confirmation()
-        #self.should_be_added_correct_item (product_name,url)
-    
-    def shoul_be_adding_confirmation (self):
+        
+    def should_be_adding_confirmation (self):
         assert self.is_element_present (*ProductPageLocators.ADDING_CONFIRMATION), "Adding to the basket is not confirmed"
     
     def should_be_added_correct_item (self,product_name_to_compare_with,initial_url):
@@ -49,9 +41,15 @@ class ProductPage(BasePage):
 
     def should_not_be_success_message(self):
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented, but should not be"
+    
     #Следующая функция написана без привязки к реально исчезающему эелементу, т.к. таковые не найдены на странице
     def  should_some_element_disappeared (self):
         assert self.is_disappeared (*ProductPageLocators.SUCCESS_MESSAGE), "Success message is not disappearing"
-        
-
+            
+    def should_item_be_added_after_registration(self):
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), "Success message is presented, but should not be"
+        button = self.browser.find_element(*MainPageLocators.ADD_TO_BASKET_BUTTON)
+        self.browser.execute_script("return arguments[0].scrollIntoView(true);", button)
+        button.click ()
+        self.should_be_adding_confirmation()
         

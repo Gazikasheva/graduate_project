@@ -5,6 +5,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from .locators import BasePageLocators
 from .locators import LoginPageLocators
+import random
+import string
 
 from selenium import webdriver
 import math
@@ -68,4 +70,12 @@ class BasePage():
                 )
         except TimeoutException:
             return False
-        return True    
+        return True
+
+    def generate_random_string(length):
+        letters = string.ascii_lowercase
+        result_str = ''.join(random.choice(letters) for i in range(length))
+        return (result_str)
+
+    def should_user_be_authorized(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented"

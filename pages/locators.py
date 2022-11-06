@@ -3,9 +3,12 @@ from selenium.webdriver.common.by import By
 class BasePageLocators ():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
+
 
 class MainPageLocators():
-    BASKET_BUTTON= (By.LINK_TEXT, "View basket")    
+    BASKET_BUTTON= (By.LINK_TEXT, "View basket")
+    ADD_TO_BASKET_BUTTON = (By.CSS_SELECTOR,'.btn.btn-primary.btn-block')  
 
 class LoginPageLocators ():
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
@@ -24,3 +27,10 @@ class BasketPageLocators ():
     BASKET_NAME = (By.TAG_NAME, 'h1')
     BASKET_MESSAGE = (By.CSS_SELECTOR,'#content_inner p')
     BASKET_ITEMS = (By.CSS_SELECTOR,'.basket-items')
+
+class RegisterPageLocators ():
+    REG_EMAIL= (By.CSS_SELECTOR, '#id_registration-email')
+    REG_PASS = (By.NAME,'registration-password1')
+    REG_PASS_CONFIRM = (By.NAME,'registration-password2')
+    REGISTER_BUTTON = (By.NAME,'registration_submit')
+    SUCCESS_REGISTRATION = (By.CSS_SELECTOR, '.icon-ok-sign')
