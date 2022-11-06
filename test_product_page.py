@@ -1,5 +1,8 @@
 from selenium.webdriver.common.by import By
 from.pages.product_page import ProductPage
+from.pages.main_page import MainPage
+from.pages.basket_page import BasketPage
+
 import pytest
 import time
 
@@ -48,3 +51,14 @@ def test_message_disappeared_after_adding_product_to_basket (browser):
     page.open ()
     page.add_to_basket ()
     page.should_some_element_disappeared ()
+
+def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
+        page = BasketPage (browser,link)
+        page.open ()
+        page.should_be_basket_enterable()
+        page.should_basket_be_empty_by_default ()
+
+#Гость открывает страницу товара
+#Переходит в корзину по кнопке в шапке 
+#Ожидаем, что в корзине нет товаров
+#Ожидаем, что есть текст о том что корзина пуста 

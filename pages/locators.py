@@ -4,8 +4,8 @@ class BasePageLocators ():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
 
-#class MainPageLocators():
-    
+class MainPageLocators():
+    BASKET_BUTTON= (By.LINK_TEXT, "View basket")    
 
 class LoginPageLocators ():
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
@@ -19,3 +19,8 @@ class ProductPageLocators ():
     PRODUCT_NAME = (By.TAG_NAME, 'h1')
     ADDED_PRODUCT_NAME = (By.XPATH, "//div[@id='messages']/div[@class='alert alert-safe alert-noicon alert-success  fade in'][1]//strong") 
     SUCCESS_MESSAGE = (By.XPATH, "//div[@id='messages']/div[@class='alert alert-safe alert-noicon alert-success  fade in'][1]")
+
+class BasketPageLocators ():
+    BASKET_NAME = (By.TAG_NAME, 'h1')
+    BASKET_MESSAGE = (By.CSS_SELECTOR,'#content_inner p')
+    BASKET_ITEMS = (By.CSS_SELECTOR,'.basket-items')
