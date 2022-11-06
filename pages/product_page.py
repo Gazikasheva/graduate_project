@@ -1,6 +1,5 @@
 from .base_page import BasePage
 from .locators import ProductPageLocators
-from selenium.common.exceptions import NoAlertPresentException
 from.locators import MainPageLocators
 
 
@@ -25,7 +24,7 @@ class ProductPage(BasePage):
         addbutton = self.browser.find_element (*ProductPageLocators.ADD_TO_BASKET_BUTTON)
         addbutton.click()
         self.solve_quiz_and_get_code ()
-        self.shoul_be_adding_confirmation()
+        self.should_be_adding_confirmation()
         self.should_be_added_correct_item (product_name,url)
         self.should_be_still_promo_in_url ()
         
