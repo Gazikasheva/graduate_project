@@ -1,7 +1,11 @@
 from selenium.webdriver.common.by import By
 
-class MainPageLocators():
+class BasePageLocators ():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+
+#class MainPageLocators():
+    
 
 class LoginPageLocators ():
     LOGIN_FORM = (By.CSS_SELECTOR, "#login_form")
@@ -14,4 +18,4 @@ class ProductPageLocators ():
     BASKET_TOTAL = (By.XPATH, '//div/strong [contains(text(), "Basket total")]')
     PRODUCT_NAME = (By.TAG_NAME, 'h1')
     ADDED_PRODUCT_NAME = (By.XPATH, "//div[@id='messages']/div[@class='alert alert-safe alert-noicon alert-success  fade in'][1]//strong") 
-    
+    SUCCESS_MESSAGE = (By.XPATH, "//div[@id='messages']/div[@class='alert alert-safe alert-noicon alert-success  fade in'][1]")
