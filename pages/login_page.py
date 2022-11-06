@@ -26,8 +26,6 @@ class LoginPage(BasePage):
         self.should_be_login_page ()
         login=f'{BasePage.generate_random_string(7)}@fakemail.com'
         self.should_fill_registration_form (login, 'GSKY133jft')
-        
-        #BasePage.should_be_authorized_user ()
     
     def should_fill_registration_form(self,email, password):
         self.should_be_register_form ()
@@ -37,5 +35,4 @@ class LoginPage(BasePage):
         self.browser.find_element(*RegisterPageLocators.REGISTER_BUTTON).click()
         assert self.is_element_present (*RegisterPageLocators.SUCCESS_REGISTRATION), "Something went wrong, registration confirmation is not visible"
 
-    def should_be_authorized_user(self):
-        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented,"
+    

@@ -8,7 +8,6 @@ from .locators import LoginPageLocators
 import random
 import string
 
-from selenium import webdriver
 import math
 import time
 class BasePage():
